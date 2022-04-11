@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Carrera } from './carrera';
 import { Taxi } from './taxi';
 
 @Component({
@@ -26,8 +27,19 @@ export class AppComponent {
   }
   askDataCarrera():void {
     let idTaxi: number = Number(prompt("Introduce el id del taxi al que quieres asignar la carrera"));
-    let recogida: string = String(prompt("Introduce la recogida"));
+    let recogida: string = String(prompt("Introduce la recogida"));//Select no button
     let destino: string = String(prompt("Introduce el destino"));
-    let horaRecogida: Date = new Date(prompt("Introduce la hora de recogida"));
+    //let horaRecogida: Date = new Date(prompt("Introduce la hora de recogida")); //Date input
+
+  }
+  asignCarreraToTaxi(idTaxi: number, recogida: string, destino: string){
+    for(let i = 0; i < this.taxis.length; i++){
+      if(this.taxis[i].id === idTaxi){
+        let carrera = new Carrera(recogida, destino)
+        this.taxis[i].addCarrera(carrera)
+      }
+      else
+      console.log("topotamadre")
+    }
   }
 }
