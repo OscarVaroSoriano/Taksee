@@ -3,9 +3,23 @@
   <h1>Bienvenida a Nightaksee</h1>
   <div class="main">
     <h3>Lista de taxis</h3>
-    <ul>
-      <li *ngFor="let taxi of taxis">{{taxi.description}}</li>
-    </ul>
+    <form action="">
+      <div class="form-group">
+        <label for="">ID Taxi:</label>
+        <input type="number" class="form-control" id="idTaxi" placeholder="ID Taxi">
+      </div>
+      <div class="form-group">
+        <label for="">Descripción:</label>
+        <input type="text" class="form-control" id="description" placeholder="...">
+      </div>
+
+    </form>
+      <!--Button to add taxi from form-->
+      <button type="button" class="btn btn-primary" (click)="askDataTaxi()">Agregar Taxi</button>
+      <!--Button to show taxis-->
+      <button type="button" class="btn btn-primary" (click)="showDataTaxi()">Mostrar taxis</button>
+      <!--Button to add carrera-->
+      <button type="button" class="btn btn-primary" (click)="askDataCarrera()">Agregar Carrera</button>
   </div>
 </div>
 <router-outlet></router-outlet>
