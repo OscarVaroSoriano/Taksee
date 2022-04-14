@@ -20,6 +20,22 @@
       <button type="button" class="btn btn-primary" (click)="showDataTaxi()">Mostrar taxis</button>
       <!--Button to add carrera-->
       <button type="button" class="btn btn-primary" (click)="askDataCarrera()">Agregar Carrera</button>
+      <!-- Ask for the hour of the carrera-->
+      <div class="form-group">
+        <label for="">Hora de la carrera:</label>
+        <input type="time" class="form-control" id="horaCarrera" placeholder="Hora de la carrera">
+      </div>
+      <!--div with each taxi-->
+      <div *ngFor="let taxi of taxis">
+        <div class="form-group">
+          <label for="">ID Taxi:</label>
+          <input type="number" class="form-control" id="idTaxi" placeholder="ID Taxi" value="{{taxi.id}}">
+        </div>
+        <div class="form-group">
+          <label for="">Descripción:</label>
+          <input type="text" class="form-control" id="description" placeholder="..." value="{{taxi.description}}">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="deleteTaxi(taxi.id)">Eliminar Taxi</button>
   </div>
 </div>
 <router-outlet></router-outlet>
