@@ -1,0 +1,15 @@
+.taxi{
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+.carrera{
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+button{
+    margin-left: 0.4em;
+}
