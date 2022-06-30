@@ -1,15 +1,33 @@
+#titulo, h2{
+    color: #ea899a;
+    background: black;
+    text-align: center;
+    height: 2em;
+    padding-top: 0.3em;
+}
+h2{
+    border-radius: 3em;
+}
+.taxis{
+    display: flex;
+}
 .taxi{
     background-color: #f4f4f4;
-    border-radius: 5px;
+    border-radius: 3em;
     padding-top: 2px;
     padding-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 0.01em;
+    margin-left: 10px;
+    width: 30%;
+
 }
 .carrera{
     background-color: #f4f4f4;
     border: 1px solid black;
-    border-radius: 5px;
+    margin-top: 0.4em;
 }
 button{
     margin-left: 0.4em;
+    margin-top: 0.2em;
 }
+

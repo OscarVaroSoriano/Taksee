@@ -1,34 +1,61 @@
 
 <div>
-  <h1>Bienvenida a Nightaksee</h1>
-  <div class="main">
-      <!--Button to add taxi from form-->
-      <button type="button" class="btn btn-primary" (click)="askDataTaxi()">Agregar Taxi</button>
-      <!--Button to show taxis-->
-      <button type="button" class="btn btn-info" (click)="showDataTaxi()">Mostrar taxis</button>
-      <!--Button to add carrera-->
-      <button type="button" class="btn btn-primary" (click)="askDataCarrera()">Agregar Carrera</button>
-
-      <!--div with each taxi-->
-      <div class="taxi" *ngFor="let taxi of taxis">
-        <h2>Taxi {{taxi.id}}</h2>
-        <div class="form-group">
-          <p id="description">
-            Descripción: {{taxi.description}}
-          </p>
+  <h1 id="titulo">Bienvenida a Nightaksee</h1>
+  <div class="main container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <div class="carrerasAbsolute">
+          <h2>Carreras sin asignar</h2>
+          <div class="carrera" *ngFor="let carrera of carrerasAbsolute">
+            <div class="form-group">
+              <label for="">Recogida:</label>
+              <span id="recogida">{{carrera.recogida}}</span>
+            </div>
+            <div class="form-group">
+              <label for="">Destino:</label>
+              <span id="destino">{{carrera.destino}}</span>
+            </div>
+            <button type="button" class="btn btn-danger" (click)="deleteCarrera(carrera)">Eliminar Carrera</button>
+          </div>
         </div>
-        <div>
-          <!--Mostrar todas las carreras del taxi -->
-          <div class="carrera" *ngFor="let carrera of taxi.carrerasProgramadas">
-              <div class="form-group">
-                <label for="">Recogida:</label>
-                <input type="text" class="form-control" id="recogida" value="{{carrera.recogida}}">
+      </div>
+      <div class="col">
+        <div class="taxis">
+          <div class="taxi" *ngFor="let taxi of taxis">
+            <h2>Taxi {{taxi.id}}</h2>
+            <div class="form-group">
+              <p id="description">
+                Descripción: {{taxi.description}}
+              </p>
+            </div>
+            <div>
+              <!--Mostrar todas las carreras del taxi -->
+              <div class="carrera" *ngFor="let carrera of taxi.carrerasProgramadas">
+                  <div class="form-group">
+                    <label for="">Recogida:</label>
+                    <span id="recogida">{{carrera.recogida}}</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Destino:</label>
+                    <span id="destino">{{carrera.destino}}</span>
+                  </div>
+                <button type="button" class="btn btn-danger" (click)="deleteCarrera(carrera)">Eliminar Carrera</button>
               </div>
-              <div class="form-group">
-                <label for="">Destino:</label>
-                <input type="text" class="form-control" id="destino" value="{{carrera.destino}}">
-              </div>
-        <button type="button" class="btn btn-danger" (click)="deleteCarrera(carrera)">Eliminar Carrera</button>
+            </div>
+            <!--Delete taxi button-->
+            <button type="button" class="btn btn-danger" (click)="deleteTaxi(taxi.id)">Eliminar Taxi</button>
+          </div>
+        </div>
+        <div class="botones">
+          <!--Button to add taxi from form-->
+          <button type="button" class="btn btn-primary" (click)="askDataTaxi()">Agregar Taxi</button>
+            <!--Button to add carrera-->
+          <button type="button" class="btn btn-primary" (click)="askDataCarrera()">Agregar Carrera</button>
+        </div>
+      </div>
+    
+      <!--div with each taxi-->
+    </div>
   </div>
 </div>
 <router-outlet></router-outlet>
